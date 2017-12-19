@@ -1,0 +1,26 @@
+<div ng-controller="portfolioController">
+    <h4>Total worth: {{totalWorth | currency}}</h4><br/>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <th class="col-md-2">Stock Name</th>
+            <th class="col-md-1">Stock ID</th>
+            <th class="col-md-1">Purchase Value</th>
+            <th class="col-md-1">Current Value</th>
+            <th class="col-md-1">Amount</th>
+            <th class="col-md-1">Change</th>
+        </thead>
+        <tr ng-repeat-start="stock in stocks track by $index">
+            <td>{{stock.stockName}}</td>
+            <td>{{stock.stockId}}</td>
+            <td>{{stock.purchaseValue | currency}}</td>
+            <td>{{stock.currentWorth | currency}}</td>
+            <td>{{stock.amount}}</td>
+            <td>{{stock.changeVal * 100}}%</td>
+            <td><button type="button" class="btn btn-success" ng-click="showForm($index)">Ask</button></td>
+        </tr>
+        <tr ng-repeat-end ng-show="stock.showCmd">
+            <td class="col-md-7"> <ask-bid-form  stock-id="stock.stockId" stock-name="stock.stockName" stock-amount="stock.amount" cmd-type="2"></ask-bid-form> </td>
+        </tr>
+
+    </table>
+</div>

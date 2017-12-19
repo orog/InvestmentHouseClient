@@ -1,0 +1,68 @@
+<div ng-controller="InvestorsController">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <th class="col-md-2">Name</th>
+        <th class="col-md-3">Email</th>
+        <th class="col-md-1">Current Status</th>
+        <th class="col-md-2">Status</th>
+        <th class="col-md-1">Current Balance</th>
+        <th class="col-md-2">Balance</th>
+
+        </thead>
+        <tr ng-repeat-start="investor in investors track by $index">
+            <td>{{investor.accName}}</td>
+            <td>{{investor.email}}</td>
+            <td ng-if="investor.statusId === 1">Pending</td>
+            <td ng-if="investor.statusId === 2">Authorized</td>
+            <td><select ng-model="selectedStatus"  ng-selected="investor.statusId" >
+                <option ng-repeat="status in statuses track by status.statusId" title="{{status.statusName}}"
+                         value="{{status.statusId}}">{{status.statusName}}
+                </option>
+            </select>
+            </td>
+            <td>{{investor.balance | currency}}</td>
+            <td><input type="number" min="0" name="updatedBalance" ng-model="updatedBalance"
+                       ng-init="investor.balance"></td>
+            <td>
+                <button type="button" class="btn btn-success" ng-click="update($index,updatedBalance,selectedStatus)">
+                    Update
+                </button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-success" ng-click="showPortfolioFunc($index)">Show Portfolio
+                </button>
+            </td>
+        </tr>
+        <tr ng-repeat-end ng-show="investor.showPortfolio">
+            <td class="col-md-12">
+                <h4>Total Worth : {{investor.portfolioValue | currency}}</h4>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <th class="col-md-2">Stock Name</th>
+                    <th class="col-md-2">Stock ID</th>
+                    <th class="col-md-1">Purchase Value</th>
+                    <th class="col-md-1">Current Value</th>
+                    <th class="col-md-1">Amount</th>
+                    <th class="col-md-1">Change</th>
+                    </thead>
+                    <tr ng-repeat="stock in investor.stocks track by $index">
+                        <td>{{stock.stockName}}</td>
+                        <td>{{stock.stockId}}</td>
+                        <td>{{stock.purchaseValue | currency}}</td>
+                        <td>{{stock.currentWorth | currency}}</td>
+                        <td>{{stock.amount}}</td>
+                        <td>{{stock.changeVal * 100}}% </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!--<input disabled type="text" name="updatedStatus" ng-model="updatedStatus" placeholder={{investor.status}}>-->
+<!--<div id="UpdateBalance">
+    <p>Update Balance
+        <input type="number" name="updatedBalance" ng-model="updatedBalance">
+        <button type="button" ng-click="updateBalance(updatedBalance)">Update</button>
+    </p>
+</div>-->

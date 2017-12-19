@@ -1,0 +1,37 @@
+<div ng-controller="loginController">
+
+    <h1>Log in</h1>
+    <h4>Email :</h4>
+    <input type="email" name="Email" ng-model="log.email"><br/>
+    <h4>Password :</h4>
+    <input type="password" name="Password" ng-model="log.password"><br/>
+    <!--<input type="text" name="userType" ng-model="account.userType"><br/>-->
+    <button type="button" ng-click="login(log)" class="btn btn-success" ng-disabled="log.password.length == 0 || !log.email">Log in</button><br/>
+    <p>{{err}}</p><br/>
+    <a href="#!/register">Sign up!</a>
+    <!--<div class="panel panel-body"  ng-if="loginAccount.email!=''">-->
+        <!--<div ng-if="loginAccount.accountType=='1'">-->
+            <!--BROKER-->
+        <!--</div>-->
+        <!--<div ng-if="loginAccount.accountType=='2'">-->
+            <!--CUSTOMER-->
+        <!--</div>-->
+        <!--search:<input type="text" ng-model="searchText">-->
+        <!--<table class="table table-bordered table-striped">-->
+            <!--<thead>-->
+                <!--<th class="col-md-1">col1</th>-->
+                <!--<th class="col-md-3">col2</th>-->
+                <!--<th class="col-md-5">col3</th>-->
+                <!--<th class="col-md-2">col4</th>-->
+            <!--</thead>-->
+            <!--<tr ng-repeat="line in myArr | orderBy:'col1' |filter:searchText track by $index ">-->
+                <!--<td>{{line.col1}}</td>-->
+                <!--<td>{{line.col2}}</td>-->
+                <!--<td>{{line.col3}}</td>-->
+                <!--<td ><button ng-if="loginAccount.accountType=='2'" class="btn btn-default" ng-class="{'btn-success': line.col1==3,'btn-warning': line.col1==1}" ng-disabled="line.col1==4">kuku</button></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</div>-->
+</body>
+</html>
+</div>

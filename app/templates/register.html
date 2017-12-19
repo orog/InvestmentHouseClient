@@ -1,0 +1,17 @@
+<div ng-controller="registerController">
+
+    <h1>Register</h1>
+    <h4>name :</h4>
+    <input type="text" name="name" ng-model="newAccount.accName"><br/>
+    <h4>Email :</h4>
+    <input type="email" name="Email" ng-model="newAccount.email"><br/>
+    <h4>Password :</h4>
+    <input type="password" name="Password" ng-model="newAccount.password"><br/>
+    <button type="button"  ng-disabled="newAccount.password.length == 0 || !newAccount.email || newAccount.accName.length == 0" ng-click="createAccount(newAccount)" class="btn btn-success"
+           >
+        register</button><br/>
+    <p>{{err}}</p><br/>
+    <a href="#!/login">log in!</a>
+    </body>
+    </html>
+</div>

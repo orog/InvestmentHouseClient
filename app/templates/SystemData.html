@@ -1,0 +1,9 @@
+<div ng-controller = "SystemDataController">
+    <h4>Commission : {{systemData.commission | currency}}</h4>
+    <h4>Revenue : {{systemData.revenue | currency}}</h4>
+    <br/>
+    <h4>Update</h4>
+    <p>Commission : <input type="number" min="0" name="commission" ng-model="commission"></p><br/>
+    <button type="button" class="btn-success" ng-click="updateCommission(commission)">Update</button>
+
+</div>

@@ -1,0 +1,28 @@
+<div ng-controller="CommandController">
+    <table class="table table-bordered table-striped">
+        <thead>
+        <th>Command ID</th>
+        <th>Stock Name</th>
+        <th>Stock ID</th>
+        <th>Min Price</th>
+        <th>Max Price</th>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>Status</th>
+        </thead>
+        <tr ng-repeat="command in commands">
+            <td class="col-md-1">{{command.myCommandId}}</td>
+            <td class="col-md-2">{{command.stockName}}</td>
+            <td class="col-md-2">{{command.stockId}}</td>
+            <td class="col-md-1">{{command.minPrice | currency}}</td>
+            <td class="col-md-1">{{command.maxPrice | currency}}</td>
+            <td class="col-md-2" ng-if="command.cmdType == 1">Bid</td>
+            <td class="col-md-2" ng-if="command.cmdType == 2">Ask</td>
+            <td class="col-md-2" ng-if="command.cmdType != 2 && command.cmdType != 1"></td>
+            <td class="col-md-1">{{command.amount}}</td>
+            <td class="col-md-2" ng-if="command.cmdStatusId == 1">Committed</td>
+            <td class="col-md-2" ng-if="command.cmdStatusId == 2">Performed</td>
+            <td class="col-md-2" ng-if="command.cmdStatusId != 2 && command.cmdStatusId != 1"></td>
+        </tr>
+    </table>
+</div>

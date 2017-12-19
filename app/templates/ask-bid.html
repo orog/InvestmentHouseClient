@@ -1,0 +1,29 @@
+<table class="table">
+    <tr>
+        <td>
+            type :  {{cmdName}}
+        </td>
+        <td>
+           minimum price :<input type="number" ng-model="command.minPrice" min="0" placeholder="minimum price">
+        </td>
+        <td>
+            <button type="button" ng-click="sendCommand(command)" class="btn  btn-success">{{cmdName}}</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Stock ID :  {{stockId}}
+        </td>
+        <td>
+            maximum price :<input type="number" ng-model="command.maxPrice" min="0" placeholder="maximum price">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Stock name: {{stockName}}
+        </td>
+        <td>
+            amount :<input type="number" ng-model="command.amount" min="1" max="stockAmount" placeholder="amount">
+        </td>
+    </tr>
+</table>

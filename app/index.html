@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<!--[if lt IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Afekot</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+<ul class="menu">
+    <li ng-if="!logedIn"><a href="#!/register">Register</a></li>
+    <li ng-if="!logedIn"><a href="#!/login">Login</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 1"><a href="#!/account/updateDetails">Account Details</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 1"><a href="#!/account/portfolio">Portfolio</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 1"><a href="#!/account/stockMarket">Stock Market</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 1"><a href="#!/account/Commands">Commands</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 2"><a href="#!/broker/systemData">System Data</a></li>
+    <li ng-if="logedIn && loginAccount.accountType == 2"><a href="#!/broker/investors">Investors</a></li>
+    <li ng-if="logedIn"><a href="#!/logOut">Logout</a></li>
+</ul>
+
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div ng-view></div>
+<!--<table>-->
+<!--<tr>-->
+<!--<td class="col-md-2"></td>-->
+<!--<td class="col-md-8">-->
+<!---->
+<!--</td>-->
+<!--<td class="col-md-2"></td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--&lt;!&ndash; In production use:-->
+<!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>-->
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+<script src="controllers/loginController.js"></script>
+<script src="controllers/registerController.js"></script>
+<script src="directives/ask-bid.js"></script>
+<script src="controllers/investorDetailsController.js"></script>
+<script src="controllers/portfolioController.js"></script>
+<script src="controllers/stockMarketViewController.js"></script>
+<script src="controllers/CommandsController.js"></script>
+<script src="controllers/SystemDataController.js"></script>
+<script src="controllers/InvestorsController.js"></script>
+<script src="controllers/LogoutController.js"></script>
+</body>
+</html>

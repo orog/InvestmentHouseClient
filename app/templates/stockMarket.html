@@ -1,0 +1,23 @@
+<div ng-controller="stockMarketViewController">
+<table class="table table-bordered table-striped">
+    <thead>
+    <th class="col-md-4">Stock Name</th>
+    <th class="col-md-4">Stock ID</th>
+    <th class="col-md-4">Current Value</th>
+    </thead>
+    <tr ng-repeat-start="stock in stocks track by $index">
+        <td>{{stock.stockName}}</td>
+        <td>{{stock.stockId}}</td>
+        <td>{{stock.actualWorth | currency}}</td>
+        <td>
+            <button type="button" class="btn btn-success" ng-click="showForm($index)">Bid</button>
+        </td>
+    </tr>
+    <tr ng-repeat-end>
+        <td class="col-md-12">
+            <ask-bid-form ng-show="stock.showCmd"  stock-id="stock.stockId" stock-name="stock.stockName" cmd-type="1"></ask-bid-form>
+        </td>
+    </tr>
+    </thead>
+</table>
+</div>

@@ -1,0 +1,13 @@
+<div ng-controller="investorDetailsController">
+    <h2>Your details:</h2>
+    <h5>Name: {{loginAccount.accName}}</h5>
+    <h5>Email: {{loginAccount.email}}</h5>
+    <h5>Balance: {{accInfo.balance | currency}}</h5>
+    <h5>Status: {{accInfo.accountStatus}}</h5><br/>
+
+    <h3>Update Details:</h3>
+    New name: <input type="text" name="name" ng-model="updated.accName"><br/>
+    New email: <input type="email" name="email" ng-model="updated.email"><br/>
+    New password: <input type="password" name="password" ng-model="updated.password"><br/>
+    <button type="button" ng-click="updateDetails(updated)" class="btn btn-success">Update</button>
+
